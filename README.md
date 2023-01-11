@@ -14,9 +14,8 @@ Please read the official [document](https://docs.aiqua.appier.com/docs/versions-
 To run on your own enviroment and test the funtionality by yourself, you need to follow the steps below.
 
 - Android:
-  1. Search and replace all the packag name of `com.rntest` with your own.
-  2. Once you change the package name, you should also change the folder name: `app/src/main/java/com/rntest` according to your new package name.
-  3. Download the `google-services.json` from your FCM console and put it into `android/app`.
+  1. Register a new Android App with the package name `com.rntest` in your FCM project.
+  2. Download the `google-services.json` from your FCM console and put it into `android/app`.
 
 - iOS:
   1. Search and replace all the bundle identifier of `com.appier.rntest` with your own
