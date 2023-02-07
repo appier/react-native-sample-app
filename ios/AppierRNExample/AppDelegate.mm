@@ -1,7 +1,5 @@
 #import "AppDelegate.h"
 
-#import <Firebase.h>
-
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
@@ -40,7 +38,6 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  [FIRApp configure];
   RCTAppSetupPrepareApp(application);
 
     // delegate to responding to notification actions
@@ -71,6 +68,26 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
   return YES;
+}
+
+// get APNs notification token
+- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
+{
+  NSUInteger deviceTokenLength = [deviceToken length];
+  const unsigned char *bytes = (const unsigned char *)[deviceToken bytes];
+  NSMutableString *deviceTokenString = [NSMutableString stringWithCapacity:deviceTokenLength * 2];
+  
+  for (NSUInteger i = 0; i < deviceTokenLength; i++) {
+      [deviceTokenString appendFormat:@"%02x", bytes[i]];
+  }
+  
+  NSLog(@"Device Token: %@", deviceTokenString);
+  [[QGSdk getSharedInstance] setToken:deviceToken];
+}
+
+- (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
+{
+  NSLog(@"Failed to get token, error: %@", error.localizedDescription);
 }
 
 // handling the click and deeplink events from push notification
