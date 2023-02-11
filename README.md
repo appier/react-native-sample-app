@@ -23,7 +23,7 @@ To run on your own enviroment and test the funtionality by yourself, you need to
   3. Download the `GoogleService-info.plist` from your FCM console and put it into `ios/AppierRNExample`.
 
 - React Native:
-  1. Find the code for initialing the SDK in `App.js` at line 116:
+  1. Find the code for initialing the SDK in `App.js` at line 123:
 
     ``` javascript
     RNAiqua.configure({
@@ -39,7 +39,7 @@ To run on your own enviroment and test the funtionality by yourself, you need to
   4. Change `appGroup`, **required only for iOS**
   5. `isDev`, optional.
 
-## Install And Run
+## Install and Run
 
 - Android:
 
@@ -54,6 +54,37 @@ To run on your own enviroment and test the funtionality by yourself, you need to
   cd .. && npx react-native run-ios
   ```
   
+## Send a Test Notification
+
+This sample app support both FCM **legacy** and **V1** HTTP API to send test notifications. Provide your FCM information in the `fcmApi.json` file. There are some required items depending on the API.
+
+Please fill in the necessary information in the `fcmApi.json` file as indicated below.
+
+**For FCM Legacy HTTP API**:
+
+```json
+{
+    "api_type": "legacy",
+    "legacy_server_key": "<FCM Cloud Messaging Server key>"
+}
+```
+
+- **legacy_server_key**: You can find your `Server key` in the FCM console -> Project settings -> Cloud Messaging Tab.
+
+**For FCM V1 HTTP API**:
+
+```json
+{
+    "api_type": "v1",
+    "fcm_project_id": "<your fcm project id>",
+    "token": "<OAuth 2.0 access token>"
+    
+}
+```
+
+- **fcm_project_id**: You can find your  FCM `Project ID` in the FCM console -> Project settings -> General tab.
+- **token**: HTTP v1 require an OAuth 2.0 access token to send requests. You can follow this [instruction](https://firebase.google.com/docs/cloud-messaging/migrate-v1) to get your token.
+
 ## Push Campaign Troubleshooting
 
 Check the following items if you can't receive push notifications:
