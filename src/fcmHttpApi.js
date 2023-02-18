@@ -1,38 +1,30 @@
 import {Platform} from 'react-native';
-import {
-  token,
-  fcm_project_id,
-  legacy_server_key,
-  api_type,
-} from '../fcmApi.json';
+import {appier as AppSettings} from '../app.json';
 import notification from '../data/notification';
 
-const V1_API_URL = `https://fcm.googleapis.com/v1/projects/${fcm_project_id}/messages:send`;
+const SERVER_KEY = AppSettings.fcm.serverKey;
+const V1_API_URL =
+  'https://fcm.googleapis.com/v1/projects/<fcm_project_id>/messages:send';
 const LEGACY_API_URL = 'https://fcm.googleapis.com/fcm/send';
 
 export const sendMessage = ({fcmToken, messageType}) => {
-  const messagePayload = notification.getPayload()[api_type][messageType];
-  if (api_type === 'legacy') {
-    return sendMessageLegacy(fcmToken, messagePayload);
-  } else if (api_type === 'v1') {
-    return sendMessageV1(fcmToken, messagePayload);
-  } else {
-    console.error('Error: `api_type` Mismatch!');
-  }
+  const messagePayload = notification.getPayload().legacy[messageType];
+  return sendMessageLegacy(fcmToken, messagePayload);
 };
 
 const sendMessageLegacy = (fcmToken, messagePayload) => {
   console.log('Send message by FCM Legacy HTTP API...');
-  const auth = `key=${legacy_server_key}`;
+  const auth = `key=${SERVER_KEY}`;
   const body = {
     to: fcmToken,
     ...messagePayload,
   };
   return makePostRequest(LEGACY_API_URL, auth, body);
 };
+
 const sendMessageV1 = (fcmToken, messagePayload) => {
   console.log('Send message by FCM V1 HTTP API...');
-  const auth = `Bearer ${token}`;
+  const auth = 'Bearer <token>';
   const body = Platform.select({
     ios: {
       message: {
