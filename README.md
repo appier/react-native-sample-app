@@ -27,23 +27,22 @@ To run on your own enviroment and test the funtionality by yourself, you need to
   
     ``` json
     {
-        ...
-        "appier": {
-            "appId": "<appId>", // appId from AIQUA dashboard
-            "ios": {
-                "appGroup": "<ios.group.identifier>",   // ios app group
-                "isDev": true                           // ios dev or prod, default "true"
-            },
-            "fcm": {
-                "senderId": "<FCM senderId>",
-                "serverKey": "<Cloud Messaging API (Legacy) server key>"
-            }
-        }
+      "appier": {
+        "appId": "<appId>",
+        "ios": {
+          "appGroup": "<ios.group.identifier>",
+          "isDev": true
+          },
+        "fcm": {
+          "senderId": "<FCM senderId>",
+          "serverKey": "<Cloud Messaging API (Legacy) server key>"
+        }    
+      }
     }
     ```
 
-  3. Change `<appId>`, `<ios.group.identifier>`, `<FCM senderId>` and `<Cloud Messaging API (Legacy) server key>` to your own.
-  4. You can find both your `FCM senderId` and `Cloud Messaging API (Legacy) server key` in the FCM console -> Project settings -> Cloud Messaging Tab.
+  2. Change `<appId>`, `<ios.group.identifier>`, `<FCM senderId>` and `<Cloud Messaging API (Legacy) server key>` to your own.
+  3. You can find both your `FCM senderId` and `Cloud Messaging API (Legacy) server key` in the FCM console -> Project settings -> Cloud Messaging Tab.
 
 ## Install and Run
 
