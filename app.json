@@ -1,4 +1,15 @@
 {
   "name": "AppierRNExample",
-  "displayName": "AppierRNExample"
+  "displayName": "AppierRNExample",
+  "appier": {
+    "appId": "<appId>",
+    "ios": {
+      "appGroup": "<ios.group.identifier>",
+      "isDev": true
+    },
+    "fcm": {
+      "senderId": "<FCM senderId>",
+      "serverKey": "<Cloud Messaging API (Legacy) server key>"
+    }
+  }
 }

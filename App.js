@@ -7,6 +7,7 @@ import {
   StatusBar,
   ScrollView,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 import RNAiqua from '@appier/react-native-sdk';
 import messaging from '@react-native-firebase/messaging';
@@ -16,6 +17,7 @@ import {
   requestNotifications,
 } from 'react-native-permissions';
 import {sendMessage} from './src/fcmHttpApi';
+import {appier as AppSettings} from './app.json';
 
 const Section = props => {
   return (
@@ -116,20 +118,22 @@ const App = () => {
           .then(result => console.log('result:', result))
           .catch(error => console.log('error:', error));
       }
-      const ftoken = await messaging().getToken();
-      console.log('FCM token:', ftoken);
-      if (ftoken != null) {
-        setFcmToken(ftoken);
+      const fcmMessageToken = await messaging().getToken();
+      console.log('FCM token:', fcmMessageToken);
+      if (fcmMessageToken != null) {
+        setFcmToken(fcmMessageToken);
+
+        const {appId, ios, fcm} = AppSettings;
         RNAiqua.configure({
-          appId: '<appId>', // appId from AIQUA dashboard
-          senderId: '<senderId>', // sender id from your FCM console
-          appGroup: '<ios.group.identifier>', // your iOS app group
-          isDev: true, // ios dev or prod - default `false` - optional
+          appId: appId, // appId from AIQUA dashboard
+          senderId: fcm.senderId, // sender id from your FCM console
+          appGroup: ios.appGroup, // your iOS app group
+          isDev: ios.isDev, // ios dev or prod - default `true` - optional
         });
 
         // On iOS, you need the pass FCM token to AIQUA
         if (Platform.OS === 'ios') {
-          RNAiqua.setFCMToken(ftoken);
+          RNAiqua.setFCMToken(fcmMessageToken);
         }
       }
     } catch (ex) {
@@ -147,7 +151,26 @@ const App = () => {
 
   const sendTestingNotification = async messageType => {
     setIsSending(true);
-    await sendMessage({fcmToken, messageType});
+    await sendMessage({fcmToken, messageType}).then(resp => {
+      if (resp?.failure) {
+        const error = resp.results[0]?.error;
+        if (error === 'MismatchSenderId') {
+          Alert.alert(
+            'Error',
+            `It seems that the 'serverKey' and '${Platform.select({
+              ios: 'GoogleService-info.plist',
+              android: 'google-service.json',
+            })}' you have provided come from different FCM projects.\n\nPlease double-check the information you have provided.`,
+          );
+        }
+      }
+      if (resp?.name === 'SyntaxError') {
+        Alert.alert(
+          'Error',
+          "It seems that the 'serverKey' you have provided is in the wrong format. \n\nPlease double-check the information you have provided.",
+        );
+      }
+    });
     setIsSending(false);
   };
 
