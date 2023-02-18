@@ -7,7 +7,7 @@ Please read the official [document](https://docs.aiqua.appier.com/docs/versions-
 
 1. Obtain the AIQUA app ID from the AIQUA dashboard. This will be used as `appId` in the following instructions.
 2. A Firebase project.
-3. Obtain the iOS app group ID. Check [here](https://docs.aiqua.appier.com/docs/rich-push-notifications#1-save-your-app-group-id) to learn more. This will be used as `appGroup` in the following instructions."
+3. Obtain the iOS app group ID. Check [here](https://docs.aiqua.appier.com/docs/rich-push-notifications#1-save-your-app-group-id) to learn more. This will be used as `appGroup` in the following instructions.
 
 ## To Run With Your Own FCM and AIQUA Account
 
@@ -18,8 +18,8 @@ To run on your own enviroment and test the funtionality by yourself, you need to
   2. Download the `google-services.json` from your FCM console and put it into `android/app`.
 
 - iOS:
-  1. Search and replace all the bundle identifier of `com.appier.rntest` with your own
-  2. Search and replace all the `appGroup` of `ios.group.identifier` with your own
+  1. Search and replace all the bundle identifier of `com.appier.rntest` with your own.
+  2. Search and replace all the `appGroup` of `ios.group.identifier` with your own.
   3. Download the `GoogleService-info.plist` from your FCM console and put it into `ios/AppierRNExample`.
 
 - React Native:
