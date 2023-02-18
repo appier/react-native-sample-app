@@ -1,5 +1,29 @@
 import {Platform} from 'react-native';
 
+const images = [
+  'https://tinyurl.com/ebb58wmb',
+  'https://tinyurl.com/2p9abzp5',
+  'https://tinyurl.com/bftsjw7k',
+  'https://tinyurl.com/yvh445j8',
+];
+
+const wording = {
+  standard: {
+    title: 'We have the standard campaign! 🎉',
+    body: 'Congrats! Now you can click to go back to the app.',
+  },
+  carousel: {
+    ios: {
+      title: 'We have the carousel campaign! 🎉',
+      body: 'Congrats! Long press the message. You can swipe to rotate the images.',
+    },
+    android: {
+      title: 'We have the carousel campaign! 🎉',
+      body: 'Congrats! You can click the right and left buttons to rotate the images.',
+    },
+  },
+};
+
 export const getPayload = () => {
   const rno = new Date().getTime();
   return Platform.select({
@@ -10,8 +34,8 @@ export const getPayload = () => {
           mutable_content: true,
           content_available: true,
           notification: {
-            body: 'A standard creative.',
-            title: 'Standard Creative',
+            title: wording.standard.title,
+            body: wording.standard.body,
             sound: 'default',
             category: '',
           },
@@ -20,7 +44,7 @@ export const getPayload = () => {
             qg: 1234567,
             qgPush: {
               type: 'basic',
-              url: 'https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg',
+              url: images[0],
             },
             rno: 1234,
             source: 'QG',
@@ -31,8 +55,8 @@ export const getPayload = () => {
           mutable_content: true,
           content_available: true,
           notification: {
-            body: 'A standard creative.',
-            title: 'Standard Creative',
+            title: wording.carousel.ios.title,
+            body: wording.carousel.ios.body,
             sound: 'default',
             category: '',
           },
@@ -46,23 +70,23 @@ export const getPayload = () => {
                 data: [
                   {
                     title: 'Carousel image 1',
-                    imageUrl: 'https://picsum.photos/id/10/200/300.jpg',
-                    deepLink: 'https://docs.aiqua.appier.com/',
+                    imageUrl: images[0],
+                    // deepLink: 'https://docs.aiqua.appier.com/',
                   },
                   {
                     title: 'Carousel image 2',
-                    imageUrl: 'https://picsum.photos/id/20/200/300.jpg',
-                    deepLink: 'https://docs.aiqua.appier.com/',
+                    imageUrl: images[1],
+                    // deepLink: 'https://docs.aiqua.appier.com/',
                   },
                   {
                     title: 'Carousel image 3',
-                    imageUrl: 'https://picsum.photos/id/30/200/300.jpg',
-                    deepLink: 'https://docs.aiqua.appier.com/',
+                    imageUrl: images[2],
+                    // deepLink: 'https://docs.aiqua.appier.com/',
                   },
                   {
                     title: 'Carousel image 4',
-                    imageUrl: 'https://picsum.photos/id/40/200/300.jpg',
-                    deepLink: 'https://docs.aiqua.appier.com/',
+                    imageUrl: images[3],
+                    // deepLink: 'https://docs.aiqua.appier.com/',
                   },
                 ],
                 carouselType: 'Linear',
@@ -77,8 +101,8 @@ export const getPayload = () => {
             payload: {
               aps: {
                 alert: {
-                  body: 'A standard creative.',
-                  title: 'Standard Creative',
+                  title: wording.standard.title,
+                  body: wording.standard.body,
                 },
                 sound: 'default',
                 category: '',
@@ -103,9 +127,8 @@ export const getPayload = () => {
               qg: 13406,
               aps: {
                 alert: {
-                  title: 'Carousel Creative',
-                  subtitle: 'This is the subtitle.',
-                  body: 'This is the body.',
+                  title: wording.carousel.ios.title,
+                  body: wording.carousel.ios.body,
                 },
                 'mutable-content': 1,
                 sound: 'default',
@@ -152,19 +175,17 @@ export const getPayload = () => {
           priority: 'high',
           data: {
             message: `{
-            "bigImageUrl": "https://picsum.photos/id/1/200/300.jpg",
+            "bigImageUrl": "${images[0]}",
             "headsUp": true,
             "source": "QG",
-            "poll": true,
-            "title": "Standard Creative",
-            "message": "A standard creative.",
+            "title": "${wording.standard.title}",
+            "message": "${wording.standard.body}",
             "type": "basic",
             "subText": "A cattle herding dog breed",
             "resize_image": false,
             "rno": ${rno},
             "pileUp": true,
-            "deepLink": "https://www.google.com/",
-            "imageUrl": "https://picsum.photos/id/2/200/300.jpg",
+            "imageUrl": "${images[2]}",
             "qgPayload": {
               "myKey": "myValue"
             },
@@ -176,7 +197,7 @@ export const getPayload = () => {
         carousel: {
           priority: 'high',
           data: {
-            message: `{"carousel":[{"image":"https://picsum.photos/id/1/512/512","message":"Carousel image 1","title":"Image 1"},{"image":"https://picsum.photos/id/2/512/512","message":"Carousel image 2","title":"Image 2"},{"image":"https://picsum.photos/id/3/512/512","message":"Carousel image 3","title":"Image 3"}],"channelId":"po","closeNotificationOnItemClick":true,"headsUp":true,"message":"A basic carousel creative.","notificationId":${rno},"qg_next_button":"https://cdn.qgraph.io/img/right.png","qg_prev_button":"https://cdn.qgraph.io/img/left.png","resize_image":false,"rno":${rno},"source":"QG","title":"Basic Carousel Creative","type":"carousel"}`,
+            message: `{"carousel":[{"image":"${images[1]}","message":"Carousel image 1","title":"Image 1"},{"image":"${images[2]}","message":"Carousel image 2","title":"Image 2"},{"image":"${images[3]}","message":"Carousel image 3","title":"Image 3"}],"channelId":"po","closeNotificationOnItemClick":true,"headsUp":true,"message":"A basic carousel creative.","notificationId":${rno},"qg_next_button":"https://cdn.qgraph.io/img/right.png","qg_prev_button":"https://cdn.qgraph.io/img/left.png","resize_image":false,"rno":${rno},"source":"QG","title":"${wording.carousel.android.title}","message":"${wording.carousel.android.body}","type":"carousel"}`,
           },
         },
       },
@@ -186,8 +207,8 @@ export const getPayload = () => {
             "headsUp": true,
             "source": "QG",
             "poll": true,
-            "title": "Standard Creative",
-            "message": "A standard creative.",
+            "title": "${wording.standard.title}",
+            "message": "${wording.standard.body}",
             "type": "basic",
             "subText": "A cattle herding dog breed",
             "resize_image": false,
@@ -201,7 +222,7 @@ export const getPayload = () => {
             "notificationId": ${rno},
             "channelId": "po"
           }`,
-        carousel: `{"carousel":[{"image":"https://picsum.photos/id/1/512/512","message":"Carousel image 1","title":"Image 1"},{"image":"https://picsum.photos/id/2/512/512","message":"Carousel image 2","title":"Image 2"},{"image":"https://picsum.photos/id/3/512/512","message":"Carousel image 3","title":"Image 3"}],"channelId":"po","closeNotificationOnItemClick":true,"headsUp":true,"message":"A basic carousel creative.","notificationId":${rno},"qg_next_button":"https://cdn.qgraph.io/img/right.png","qg_prev_button":"https://cdn.qgraph.io/img/left.png","resize_image":false,"rno":${rno},"source":"QG","title":"Basic Carousel Creative","type":"carousel"}`,
+        carousel: `{"carousel":[{"image":"https://picsum.photos/id/1/512/512","message":"Carousel image 1","title":"Image 1"},{"image":"https://picsum.photos/id/2/512/512","message":"Carousel image 2","title":"Image 2"},{"image":"https://picsum.photos/id/3/512/512","message":"Carousel image 3","title":"Image 3"}],"channelId":"po","closeNotificationOnItemClick":true,"headsUp":true,"message":"A basic carousel creative.","notificationId":${rno},"qg_next_button":"https://cdn.qgraph.io/img/right.png","qg_prev_button":"https://cdn.qgraph.io/img/left.png","resize_image":false,"rno":${rno},"source":"QG","title":"${wording.carousel.android.title}","message":"${wording.carousel.android.body}","type":"carousel"}`,
       },
     },
   });
