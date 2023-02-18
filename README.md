@@ -5,9 +5,9 @@ Please read the official [document](https://docs.aiqua.appier.com/docs/versions-
 
 ## Preparation
 
-1. AIQUA app id
-2. iOS appGroup
-3. FCM sender id.
+1. Obtain the AIQUA app ID from the AIQUA dashboard. This will be used as `appId` in the following instructions.
+2. A Firebase project.
+3. Obtain the iOS app group ID. Check [here](https://docs.aiqua.appier.com/docs/rich-push-notifications#1-save-your-app-group-id) to learn more. This will be used as `appGroup` in the following instructions."
 
 ## To Run With Your Own FCM and AIQUA Account
 
@@ -27,6 +27,8 @@ To run on your own enviroment and test the funtionality by yourself, you need to
   
     ``` json
     {
+      "name": "AppierRNExample",
+      "displayName": "AppierRNExample",
       "appier": {
         "appId": "<appId>",
         "ios": {
