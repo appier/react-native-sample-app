@@ -15,6 +15,7 @@ import {
   checkNotifications,
   requestNotifications,
 } from 'react-native-permissions';
+import NotifService from './notificationService';
 
 const Section = props => {
   return (
@@ -54,28 +55,41 @@ const App = () => {
   useEffect(() => {
     // On Android, to receive notifications while App is in foreground, we need to
     // implement `onMessage` and handle the message by AIQUA
-    if (Platform.OS === 'android') {
-      const unsubscribe = messaging().onMessage(async remoteMessage => {
-        if (
-          remoteMessage.from &&
-          remoteMessage.data &&
-          remoteMessage.data.message
-        ) {
-          const json = JSON.parse(remoteMessage.data.message);
-          if (json.source === 'QG') {
-            // If the message is from AIQUA, send it to Appier SDK by calling this API.
-            RNAiqua.handleRemoteMessage(remoteMessage.data.message);
-          }
-        }
-      });
-      return unsubscribe;
-    }
+    // if (Platform.OS === 'android') {
+    //   const unsubscribe = messaging().onMessage(async remoteMessage => {
+    //     console.log('remoteMessage:', remoteMessage);
+    //     if (
+    //       remoteMessage.from &&
+    //       remoteMessage.data &&
+    //       remoteMessage.data.message
+    //     ) {
+    //       const json = JSON.parse(remoteMessage.data.message);
+    //       if (json.source === 'QG') {
+    //         // If the message is from AIQUA, send it to Appier SDK by calling this API.
+    //         RNAiqua.handleRemoteMessage(remoteMessage.data.message);
+    //       }
+    //     }
+    //   });
+    //   return unsubscribe;
+    // }
   }, []);
 
   useEffect(() => {
     askPushNotification();
     initializeSDK();
+    const notificationService = new NotifService(onRegister, onNotification);
   }, []);
+
+  const onRegister = token => {
+    console.log('token=', token);
+  };
+
+  // handle notification in the foreground
+  const onNotification = notification => {
+    console.log('onNotification=', notification);
+    RNAiqua.handleRemoteMessage(notification.data.message);
+    notification?.finish();
+  };
 
   const askPushNotification = async () => {
     try {
