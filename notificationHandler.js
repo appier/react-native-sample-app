@@ -1,17 +1,6 @@
 import PushNotification from 'react-native-push-notification';
-import RNAiqua from '@appier/react-native-sdk';
-
 class NotificationHandler {
   onNotification(notification) {
-    console.log('NotificationHandler onNotification:', notification);
-
-    // Appier: force to handle push by AIQUA when the notification is not in the foreground.
-    // There will be an error fire by `react-native-push-notification`:
-    // `Ignore this message if you sent data-only notification. Cannot send to notification centre because there is no 'message'`'
-    if (!notification?.foreground) {
-      RNAiqua.handleRemoteMessage(notification.data.message);
-    }
-
     if (typeof this._onNotification === 'function') {
       this._onNotification(notification);
     }
