@@ -6,7 +6,8 @@ import {
   Platform,
   StatusBar,
   ScrollView,
-  TextInput,
+  TouchableOpacity,
+  Alert,
 } from 'react-native';
 import RNAiqua from '@appier/react-native-sdk';
 import messaging from '@react-native-firebase/messaging';
@@ -15,6 +16,8 @@ import {
   checkNotifications,
   requestNotifications,
 } from 'react-native-permissions';
+import {sendMessage} from './src/fcmHttpApi';
+import {appier as AppSettings} from './app.json';
 
 const Section = props => {
   return (
@@ -23,7 +26,8 @@ const Section = props => {
         style={{
           backgroundColor: '#eee',
           padding: 6,
-          fontWeight: 'bold',
+          color: '#222222',
+          fontWeight: '900',
           fontSize: 17,
         }}>
         {props.title}
@@ -39,16 +43,21 @@ const Section = props => {
 const Item = ({title, content}) => {
   return (
     <View style={{padding: 6}}>
-      <Text style={{fontWeight: 'bold'}}>{title}</Text>
-      <TextInput scrollEnabled={false} multiline={true} editable={false}>
-        {content}
-      </TextInput>
+      <Text style={{fontSize: 15, fontWeight: 'bold', color: '#222222'}}>
+        {title}
+      </Text>
+      {content != null ? (
+        <Text selectable={true} style={{color: '#555555', fontSize: 13}}>
+          {content}
+        </Text>
+      ) : null}
     </View>
   );
 };
 
 const App = () => {
   const [fcmToken, setFcmToken] = useState(null);
+  const [isSending, setIsSending] = useState(false);
   const [notificationPermissionStatus, setNotificationPermissionStatus] =
     useState(null);
   useEffect(() => {
@@ -109,26 +118,61 @@ const App = () => {
           .then(result => console.log('result:', result))
           .catch(error => console.log('error:', error));
       }
-      const token = await messaging().getToken();
-      console.log('FCM token:', token);
-      if (token != null) {
-        setFcmToken(token);
+      const fcmMessageToken = await messaging().getToken();
+      console.log('FCM token:', fcmMessageToken);
+      if (fcmMessageToken != null) {
+        setFcmToken(fcmMessageToken);
+
+        const {appId, ios, fcm} = AppSettings;
         RNAiqua.configure({
-          appId: '<appId>', // appId from AIQUA dashboard
-          senderId: '<senderId>', // sender id from your FCM console
-          appGroup: '<ios.group.identifier>', // your iOS app group
-          isDev: true, // ios dev or prod - default `false` - optional
+          appId: appId, // appId from AIQUA dashboard
+          senderId: fcm.senderId, // sender id from your FCM console
+          appGroup: ios.appGroup, // your iOS app group
+          isDev: ios.isDev, // ios dev or prod - default `true` - optional
         });
 
         // On iOS, you need the pass FCM token to AIQUA
         if (Platform.OS === 'ios') {
-          RNAiqua.setFCMToken(token);
+          RNAiqua.setFCMToken(fcmMessageToken);
         }
       }
     } catch (ex) {
       console.error(ex?.message || JSON.stringify(ex));
     }
   }
+
+  const sendCarousel = () => {
+    sendTestingNotification('carousel');
+  };
+
+  const sendBasic = () => {
+    sendTestingNotification('basic');
+  };
+
+  const sendTestingNotification = async messageType => {
+    setIsSending(true);
+    await sendMessage({fcmToken, messageType}).then(resp => {
+      if (resp?.failure) {
+        const error = resp.results[0]?.error;
+        if (error === 'MismatchSenderId') {
+          Alert.alert(
+            'Error',
+            `It seems that the 'serverKey' and '${Platform.select({
+              ios: 'GoogleService-info.plist',
+              android: 'google-service.json',
+            })}' you have provided come from different FCM projects.\n\nPlease double-check the information you have provided.`,
+          );
+        }
+      }
+      if (resp?.name === 'SyntaxError') {
+        Alert.alert(
+          'Error',
+          "It seems that the 'serverKey' you have provided is in the wrong format. \n\nPlease double-check the information you have provided.",
+        );
+      }
+    });
+    setIsSending(false);
+  };
 
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
@@ -148,12 +192,49 @@ const App = () => {
             Welcome to Appier React Native Sample App!
           </Text>
 
-          <Section title={`Push Campaign`}>
-            <Item title={`Your FCM Token:`} content={fcmToken} />
+          <Section title={'Push Campaign'}>
+            <Item title={'Your FCM Token:'} content={fcmToken} />
             <Item
-              title={`Status of Notification Permission:`}
+              title={'Status of Notification Permission:'}
               content={notificationPermissionStatus}
             />
+            <Item title={'Send a Test Notification:'} />
+            <TouchableOpacity
+              disabled={isSending}
+              onPress={() => {
+                sendBasic();
+              }}
+              style={{
+                height: 50,
+                marginHorizontal: 20,
+                marginVertical: 4,
+                borderRadius: 4,
+                backgroundColor: '#eeeeee',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
+              <Text style={{textAlign: 'center', color: '#222222'}}>
+                {isSending ? 'sending...' : 'Send (Basic)'}
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              disabled={isSending}
+              onPress={() => {
+                sendCarousel();
+              }}
+              style={{
+                height: 50,
+                marginHorizontal: 20,
+                marginVertical: 4,
+                borderRadius: 4,
+                backgroundColor: '#eee',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
+              <Text style={{textAlign: 'center', color: '#222222'}}>
+                {isSending ? 'sending...' : 'Send (Heads up, Carousel)'}
+              </Text>
+            </TouchableOpacity>
           </Section>
         </View>
       </ScrollView>

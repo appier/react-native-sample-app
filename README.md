@@ -5,9 +5,9 @@ Please read the official [document](https://docs.aiqua.appier.com/docs/versions-
 
 ## Preparation
 
-1. AIQUA app id
-2. iOS appGroup
-3. FCM sender id.
+1. Obtain the AIQUA app ID from the AIQUA dashboard. This will be used as `appId` in the following instructions.
+2. A Firebase project.
+3. Obtain the iOS app group ID. Check [here](https://docs.aiqua.appier.com/docs/rich-push-notifications#1-save-your-app-group-id) to learn more. This will be used as `appGroup` in the following instructions.
 
 ## To Run With Your Own FCM and AIQUA Account
 
@@ -18,28 +18,35 @@ To run on your own enviroment and test the funtionality by yourself, you need to
   2. Download the `google-services.json` from your FCM console and put it into `android/app`.
 
 - iOS:
-  1. Search and replace all the bundle identifier of `com.appier.rntest` with your own
-  2. Search and replace all the `appGroup` of `ios.group.identifier` with your own
+  1. Search and replace all the bundle identifier of `com.appier.rntest` with your own.
+  2. Search and replace all the `appGroup` of `ios.group.identifier` with your own.
   3. Download the `GoogleService-info.plist` from your FCM console and put it into `ios/AppierRNExample`.
 
 - React Native:
-  1. Find the code for initialing the SDK in `App.js` at line 116:
-
-    ``` javascript
-    RNAiqua.configure({
-      appId: '<appId>', // appId from AIQUA dashboard - required
-      senderId: '<senderId>', // sender id from your FCM console - required
-      appGroup: '<ios.group.identifier>', // your iOS app group - required for iOS
-      isDev: true, // ios dev or prod - default `false` - optional
-    });
+  1. Provide your information in `app.json` as indicated below. All fields need to be required for working on both Android and iOS.
+  
+    ``` json
+    {
+      "name": "AppierRNExample",
+      "displayName": "AppierRNExample",
+      "appier": {
+        "appId": "<appId>",
+        "ios": {
+          "appGroup": "<ios.group.identifier>",
+          "isDev": true
+          },
+        "fcm": {
+          "senderId": "<FCM senderId>",
+          "serverKey": "<Cloud Messaging API (Legacy) server key>"
+        }    
+      }
+    }
     ```
 
-  2. Change `appId`, **required**
-  3. Change `senderId`, **required**
-  4. Change `appGroup`, **required only for iOS**
-  5. `isDev`, optional.
+  2. Change `<appId>`, `<ios.group.identifier>`, `<FCM senderId>` and `<Cloud Messaging API (Legacy) server key>` to your own.
+  3. You can find both your `FCM senderId` and `Cloud Messaging API (Legacy) server key` in the FCM console -> Project settings -> Cloud Messaging Tab.
 
-## Install And Run
+## Install and Run
 
 - Android:
 
@@ -54,11 +61,15 @@ To run on your own enviroment and test the funtionality by yourself, you need to
   cd .. && npx react-native run-ios
   ```
   
+## Send a Test Notification
+
+This sample app support FCM **legacy** HTTP API to send test notifications. To enable push notifications, please fill out the `fcm` object in the JSON file `app.json` with the appropriate values for your Firebase Cloud Messaging configuration as described above.
+
 ## Push Campaign Troubleshooting
 
-Check the following items if you can't receive push notifications:
+Check the following if you are unable to receive push notifications:
 
-- The device is connected to the network
-- Segment is correctly set on AIQUA dashboard
-- Can get FCM token
-- The permission of push notification is granted
+- The device is connected to the network.
+- You can obtain an FCM token.
+- GoogleService-info.plist (for iOS) or google-services.json (for Android) is located in the correct path.
+- Push notification permission has been granted.
