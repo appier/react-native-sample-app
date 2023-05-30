@@ -1,8 +1,17 @@
 package com.rntest;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
+import com.facebook.react.bridge.Arguments;
+import com.facebook.react.bridge.WritableMap;
+
+import io.invertase.firebase.common.ReactNativeFirebaseEventEmitter;
+import io.invertase.firebase.messaging.ReactNativeFirebaseMessagingSerializer;
 
 public class MainActivity extends ReactActivity {
 
@@ -43,6 +52,29 @@ public class MainActivity extends ReactActivity {
       // If you opted-in for the New Architecture, we enable Concurrent Root (i.e. React 18).
       // More on this on https://reactjs.org/blog/2022/03/29/react-v18.html
       return BuildConfig.IS_NEW_ARCHITECTURE_ENABLED;
+    }
+  }
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    processIntent(getIntent());
+  }
+
+  @Override
+  public void onNewIntent(Intent intent) {
+    super.onNewIntent(intent);
+    processIntent(intent);
+  }
+
+  private void processIntent(Intent intent) {
+    // Check if the Intent is coming from AIQUA via customized key-value pair.
+    // Please ensure you have set the "Include Key-Value Pairs" option in the campaign settings on the AIQUA dashboard,
+    // with the key-value pair "key=source, value=aiqua".
+    if (intent != null && "aiqua".equals(intent.getStringExtra("source"))) {
+      ReactNativeFirebaseEventEmitter emitter = ReactNativeFirebaseEventEmitter.getSharedInstance();
+      WritableMap extras = Arguments.fromBundle(intent.getExtras());
+      emitter.sendEvent(ReactNativeFirebaseMessagingSerializer.remoteMessageMapToEvent(extras, true));
     }
   }
 }
