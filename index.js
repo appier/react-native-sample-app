@@ -26,6 +26,10 @@ if (Platform.OS === 'android') {
       }
     }
   });
+
+  messaging().onNotificationOpenedApp(qgPayload => {
+    console.log('Notification Open App:', qgPayload);
+  });
 }
 
 AppRegistry.registerComponent(appName, () => App);
