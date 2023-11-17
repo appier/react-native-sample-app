@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "705241114176",
+    "project_id": "aiquademoapp",
+    "storage_bucket": "aiquademoapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:705241114176:android:a040cef753a09df148e1a5",
+        "android_client_info": {
+          "package_name": "com.example.flutter_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "705241114176-0j46e1pkloblo6jmj8oqcr1beo2804d7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBG3ihZHgrCtBjiOIV_ry67vpPYSJqdTs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "705241114176-0j46e1pkloblo6jmj8oqcr1beo2804d7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "705241114176-035gvt6lu3v0srd13clfmmd4bobjlffs.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.appier.rntest"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:705241114176:android:4debb2c957db836448e1a5",
+        "android_client_info": {
+          "package_name": "com.rntest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "705241114176-0j46e1pkloblo6jmj8oqcr1beo2804d7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBG3ihZHgrCtBjiOIV_ry67vpPYSJqdTs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "705241114176-0j46e1pkloblo6jmj8oqcr1beo2804d7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "705241114176-035gvt6lu3v0srd13clfmmd4bobjlffs.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.appier.rntest"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
