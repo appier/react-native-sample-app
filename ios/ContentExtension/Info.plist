@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>AppierAppGroup</key>
-	<string>ios.group.identifier</string>
+	<string>group.com.appier.rntest.notification</string>
 	<key>NSExtension</key>
 	<dict>
 		<key>NSExtensionAttributes</key>

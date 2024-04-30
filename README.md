@@ -19,7 +19,7 @@ To run on your own enviroment and test the funtionality by yourself, you need to
 
 - iOS:
   1. Search and replace all the bundle identifier of `com.appier.rntest` with your own.
-  2. Search and replace all the `appGroup` of `ios.group.identifier` with your own.
+  2. Search and replace all the `appGroup` of `group.com.appier.rntest.notification` with your own.
   3. Download the `GoogleService-info.plist` from your FCM console and put it into `ios/AppierRNExample`.
 
 - React Native:
@@ -32,7 +32,7 @@ To run on your own enviroment and test the funtionality by yourself, you need to
       "appier": {
         "appId": "<appId>",
         "ios": {
-          "appGroup": "<ios.group.identifier>",
+          "appGroup": "<group.com.appier.rntest.notification>",
           "isDev": true
           },
         "fcm": {
@@ -43,7 +43,7 @@ To run on your own enviroment and test the funtionality by yourself, you need to
     }
     ```
 
-  2. Change `<appId>`, `<ios.group.identifier>`, `<FCM senderId>` and `<Cloud Messaging API (Legacy) server key>` to your own.
+  2. Change `<appId>`, `<group.com.appier.rntest.notification>`, `<FCM senderId>` and `<Cloud Messaging API (Legacy) server key>` to your own.
   3. You can find both your `FCM senderId` and `Cloud Messaging API (Legacy) server key` in the FCM console -> Project settings -> Cloud Messaging Tab.
 
 ## Install and Run
