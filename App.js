@@ -71,14 +71,17 @@ const App = () => {
     }
   };
 
-  async function initializeSDK() {
+  const initializeSDK = () => {
     RNAiqua.configure({
       appId: '<appId>', // appId from AIQUA dashboard
       senderId: '<senderId>', // sender id from your FCM console
-      appGroup: '<ios.group.identifier>', // your iOS app group
+      appGroup: '<group.com.appier.rntest.notification>', // your iOS app group
       isDev: true, // ios dev or prod - default `false` - optional
     });
-  }
+    RNAiqua.getAppierId().then(result => {
+      console.log(`AppierId=${result}`);
+    });
+  };
 
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>

@@ -50,9 +50,6 @@ end
 target 'AppierRNExample' do
   config = use_native_modules!
 
-  use_frameworks! :linkage => :static
-  $RNFirebaseAsStaticFramework = true
-
   use_react_native!(
     :path => config[:reactNativePath],
     # Enables Flipper.
@@ -82,11 +79,9 @@ target 'AppierRNExample' do
 end
 
 target 'ServiceExtension' do
-  use_frameworks! :linkage => :static
   pod 'AppierExtensionFramework', '7.32.3'
 end
 
 target 'ContentExtension' do
-  use_frameworks! :linkage => :static
   pod 'AppierExtensionFramework', '7.32.3'
 end

@@ -11,21 +11,20 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		4A2551B8CCE74A0726927C8F /* Pods_ServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB5AA5AC130C786AC62397F /* Pods_ServiceExtension.framework */; };
-		5E74F9B50CD12B2A3DD736CD /* Pods_AppierRNExample_AppierRNExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D77D370A535F3BDBD89EC1E /* Pods_AppierRNExample_AppierRNExampleTests.framework */; };
+		1AEFF71E40BD5647EF6EE9C2 /* libPods-ContentExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 801A244F5C338371D8A84439 /* libPods-ContentExtension.a */; };
+		3A9621462F3004E5C456F9F9 /* libPods-AppierRNExample-AppierRNExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FA0D9EF223F3B2821E4DFF /* libPods-AppierRNExample-AppierRNExampleTests.a */; };
+		6A77B4DAE184A13AE46256FC /* libPods-ServiceExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0BDE97015621B622318DBDB /* libPods-ServiceExtension.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		85BF3BBB058191C13BC0996C /* Pods_AppierRNExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D6D1331DE7A60AFB9729998 /* Pods_AppierRNExample.framework */; };
+		8A0B9DCF2BE3849B007A0008 /* ServiceExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 8ABB33692949D1C30098F42F /* ServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8A0B9DD02BE384A9007A0008 /* ContentExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 8ABB33792949D3760098F42F /* ContentExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8A59D7E72BE0CBA700E43BB9 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 8A59D7E62BE0CBA700E43BB9 /* PrivacyInfo.xcprivacy */; };
-		8A59D7E92BE0CE4100E43BB9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A59D7E82BE0CE4100E43BB9 /* GoogleService-Info.plist */; };
 		8ABB33632949CEFC0098F42F /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ABB33622949CEFC0098F42F /* UserNotifications.framework */; };
 		8ABB336C2949D1C30098F42F /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB336B2949D1C30098F42F /* NotificationService.swift */; };
 		8ABB337A2949D3760098F42F /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ABB33622949CEFC0098F42F /* UserNotifications.framework */; };
 		8ABB337C2949D3760098F42F /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ABB337B2949D3760098F42F /* UserNotificationsUI.framework */; };
 		8ABB337F2949D3770098F42F /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB337E2949D3770098F42F /* NotificationViewController.swift */; };
 		8ABB33822949D3770098F42F /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8ABB33802949D3770098F42F /* MainInterface.storyboard */; };
-		8AD7FED0294B6A9D00AE49F8 /* ServiceExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 8ABB33692949D1C30098F42F /* ServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		8AD7FED4294B6AA000AE49F8 /* ContentExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 8ABB33792949D3760098F42F /* ContentExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		9574B5EB9AA7F10B4AC835A2 /* Pods_ContentExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12AA91277ED8CE2A91DBFC30 /* Pods_ContentExtension.framework */; };
+		C8491013EA8023306668EA37 /* libPods-AppierRNExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F1ECF7DE584E78668DD4C25E /* libPods-AppierRNExample.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,14 +52,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8AD7FED3294B6A9D00AE49F8 /* Embed Foundation Extensions */ = {
+		8A0B9DCE2BE3845A007A0008 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				8AD7FED4294B6AA000AE49F8 /* ContentExtension.appex in Embed Foundation Extensions */,
-				8AD7FED0294B6A9D00AE49F8 /* ServiceExtension.appex in Embed Foundation Extensions */,
+				8A0B9DD02BE384A9007A0008 /* ContentExtension.appex in Embed Foundation Extensions */,
+				8A0B9DCF2BE3849B007A0008 /* ServiceExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,25 +70,21 @@
 		00E356EE1AD99517003FC87E /* AppierRNExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppierRNExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* AppierRNExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppierRNExampleTests.m; sourceTree = "<group>"; };
-		0D6D1331DE7A60AFB9729998 /* Pods_AppierRNExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppierRNExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		12AA91277ED8CE2A91DBFC30 /* Pods_ContentExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ContentExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07F961A680F5B00A75B9A /* AppierRNExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppierRNExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = AppierRNExample/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = AppierRNExample/AppDelegate.mm; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = AppierRNExample/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = AppierRNExample/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = AppierRNExample/main.m; sourceTree = "<group>"; };
-		1DB5AA5AC130C786AC62397F /* Pods_ServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4392A12AC88292D35C810B /* Pods-AppierRNExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppierRNExample.debug.xcconfig"; path = "Target Support Files/Pods-AppierRNExample/Pods-AppierRNExample.debug.xcconfig"; sourceTree = "<group>"; };
-		4D77D370A535F3BDBD89EC1E /* Pods_AppierRNExample_AppierRNExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppierRNExample_AppierRNExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5709B34CF0A7D63546082F79 /* Pods-AppierRNExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppierRNExample.release.xcconfig"; path = "Target Support Files/Pods-AppierRNExample/Pods-AppierRNExample.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-AppierRNExample-AppierRNExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppierRNExample-AppierRNExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-AppierRNExample-AppierRNExampleTests/Pods-AppierRNExample-AppierRNExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6A8D0B31670AD4F2BC399C5D /* Pods-ServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ServiceExtension.release.xcconfig"; path = "Target Support Files/Pods-ServiceExtension/Pods-ServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
+		801A244F5C338371D8A84439 /* libPods-ContentExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ContentExtension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = AppierRNExample/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		86EC19B868CA1BEE5C92C112 /* Pods-ServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ServiceExtension.debug.xcconfig"; path = "Target Support Files/Pods-ServiceExtension/Pods-ServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-AppierRNExample-AppierRNExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppierRNExample-AppierRNExampleTests.release.xcconfig"; path = "Target Support Files/Pods-AppierRNExample-AppierRNExampleTests/Pods-AppierRNExample-AppierRNExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		8A59D7E62BE0CBA700E43BB9 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		8A59D7E82BE0CE4100E43BB9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8ABB33622949CEFC0098F42F /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		8ABB33642949D1700098F42F /* AppierRNExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = AppierRNExample.entitlements; path = AppierRNExample/AppierRNExample.entitlements; sourceTree = "<group>"; };
 		8ABB33692949D1C30098F42F /* ServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,7 +98,10 @@
 		8ABB338A2949D3E90098F42F /* ServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ServiceExtension.entitlements; sourceTree = "<group>"; };
 		8ABB338B2949D4730098F42F /* ContentExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ContentExtension.entitlements; sourceTree = "<group>"; };
 		966AACAF3648CBEE3A84520C /* Pods-ContentExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContentExtension.release.xcconfig"; path = "Target Support Files/Pods-ContentExtension/Pods-ContentExtension.release.xcconfig"; sourceTree = "<group>"; };
+		A0BDE97015621B622318DBDB /* libPods-ServiceExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ServiceExtension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F1ECF7DE584E78668DD4C25E /* libPods-AppierRNExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AppierRNExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2FA0D9EF223F3B2821E4DFF /* libPods-AppierRNExample-AppierRNExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AppierRNExample-AppierRNExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F65CBA3ED6D3D3D7A584177C /* Pods-ContentExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContentExtension.debug.xcconfig"; path = "Target Support Files/Pods-ContentExtension/Pods-ContentExtension.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,7 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E74F9B50CD12B2A3DD736CD /* Pods_AppierRNExample_AppierRNExampleTests.framework in Frameworks */,
+				3A9621462F3004E5C456F9F9 /* libPods-AppierRNExample-AppierRNExampleTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,7 +119,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8ABB33632949CEFC0098F42F /* UserNotifications.framework in Frameworks */,
-				85BF3BBB058191C13BC0996C /* Pods_AppierRNExample.framework in Frameworks */,
+				C8491013EA8023306668EA37 /* libPods-AppierRNExample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,7 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A2551B8CCE74A0726927C8F /* Pods_ServiceExtension.framework in Frameworks */,
+				6A77B4DAE184A13AE46256FC /* libPods-ServiceExtension.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,7 +137,7 @@
 			files = (
 				8ABB337C2949D3760098F42F /* UserNotificationsUI.framework in Frameworks */,
 				8ABB337A2949D3760098F42F /* UserNotifications.framework in Frameworks */,
-				9574B5EB9AA7F10B4AC835A2 /* Pods_ContentExtension.framework in Frameworks */,
+				1AEFF71E40BD5647EF6EE9C2 /* libPods-ContentExtension.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,11 +180,11 @@
 			children = (
 				8ABB33622949CEFC0098F42F /* UserNotifications.framework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				0D6D1331DE7A60AFB9729998 /* Pods_AppierRNExample.framework */,
-				4D77D370A535F3BDBD89EC1E /* Pods_AppierRNExample_AppierRNExampleTests.framework */,
 				8ABB337B2949D3760098F42F /* UserNotificationsUI.framework */,
-				12AA91277ED8CE2A91DBFC30 /* Pods_ContentExtension.framework */,
-				1DB5AA5AC130C786AC62397F /* Pods_ServiceExtension.framework */,
+				F1ECF7DE584E78668DD4C25E /* libPods-AppierRNExample.a */,
+				F2FA0D9EF223F3B2821E4DFF /* libPods-AppierRNExample-AppierRNExampleTests.a */,
+				801A244F5C338371D8A84439 /* libPods-ContentExtension.a */,
+				A0BDE97015621B622318DBDB /* libPods-ServiceExtension.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -201,7 +199,6 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				8A59D7E82BE0CE4100E43BB9 /* GoogleService-Info.plist */,
 				8A59D7E62BE0CBA700E43BB9 /* PrivacyInfo.xcprivacy */,
 				13B07FAE1A68108700A75B9A /* AppierRNExample */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -297,9 +294,9 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				8AD7FED3294B6A9D00AE49F8 /* Embed Foundation Extensions */,
 				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
-				8AD7FED3294B6A9D00AE49F8 /* Embed Foundation Extensions */,
+				CD936C5945E9CAB2834254E3 /* [CP] Copy Pods Resources */,
+				8A0B9DCE2BE3845A007A0008 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -406,7 +403,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A59D7E72BE0CBA700E43BB9 /* PrivacyInfo.xcprivacy in Resources */,
-				8A59D7E92BE0CE4100E43BB9 /* GoogleService-Info.plist in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
@@ -461,23 +457,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppierRNExample/Pods-AppierRNExample-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		34D53FC54B589208763CC73B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AppierRNExample/Pods-AppierRNExample-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AppierRNExample/Pods-AppierRNExample-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppierRNExample/Pods-AppierRNExample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5DBCAA6EAF2AEDF5929D466C /* [CP] Copy Pods Resources */ = {
@@ -600,6 +579,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppierRNExample-AppierRNExampleTests/Pods-AppierRNExample-AppierRNExampleTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD936C5945E9CAB2834254E3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AppierRNExample/Pods-AppierRNExample-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AppierRNExample/Pods-AppierRNExample-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppierRNExample/Pods-AppierRNExample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -859,7 +855,10 @@
 					"-DFOLLY_USE_LIBCPP=1",
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
@@ -938,7 +937,10 @@
 					"-DFOLLY_USE_LIBCPP=1",
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
