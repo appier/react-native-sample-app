@@ -1,6 +1,6 @@
 # react-native-sample-app
 
-This is a react-native sample app that demonstrates integrating of the [@appier/react-native-sdk](https://www.npmjs.com/package/@appier/react-native-sdk) with the build-in FCM on Android and APNs on iOS.
+This is a react-native sample app that demonstrates integrating of the [@appier/react-native-sdk](https://www.npmjs.com/package/@appier/react-native-sdk) with the build-in FCM on Android and APNs on
 Before starting, please read the official [document](https://docs.aiqua.appier.com/docs/versions-for-react-native-integration).
 
 Please noted that this is the `native` branch, and there is no need for `react-native-firebase`.
@@ -21,7 +21,7 @@ To test the functionality on your own environment, follow the steps below.
 
 - iOS:
   1. Search and replace all the bundle identifier of `com.appier.rntest` with your own
-  2. Search and replace all the `appGroup` of `ios.group.identifier` with your own.
+  2. Search and replace all the `appGroup` of `group.com.appier.rntest.notification` with your own.
 
 - React Native:
   1. Find the code for initialing the SDK in `App.js` at line 74:
@@ -30,7 +30,7 @@ To test the functionality on your own environment, follow the steps below.
     RNAiqua.configure({
       appId: '<appId>', // appId from AIQUA dashboard - required
       senderId: '<senderId>', // sender id from your FCM console
-      appGroup: '<ios.group.identifier>', // your iOS app group
+      appGroup: '<group.com.appier.rntest.notification>', // your iOS app group
       isDev: true, // ios dev or prod - default `false` - optional
     });
     ```
